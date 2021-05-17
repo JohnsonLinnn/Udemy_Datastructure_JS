@@ -14,14 +14,8 @@ class BinarySearchTree {
         if(this.root==null)this.root=new Node(value)
         else{
             let index=this.root
-            let temp=index
-            console.log(temp)
-            while(temp!=null){
-                if(index.value>value)temp=index.left
-                else if (index.value<value)temp=index.right
-            }
-            temp=new Node(value)
-            console.log(temp)    
+            if(value>index.value && index.right!=null)index=index.right
+            else index.right=new Node(value)
         }
         
     }
@@ -45,14 +39,14 @@ class BinarySearchTree {
   //     9
   //  4     20
   //1  6  15  170
-  /*
+  
   function traverse(node) {
     const tree = { value: node.value };
     tree.left = node.left === null ? null : traverse(node.left);
     tree.right = node.right === null ? null : traverse(node.right);
     return tree;
   }
-  */
+  
   
   
   
