@@ -6,12 +6,24 @@ class Node {
     }
   }
   
-  class BinarySearchTree {
+class BinarySearchTree {
     constructor(){
       this.root = null;
     }
     insert(value){
-      //Code here
+        if(this.root==null)this.root=new Node(value)
+        else{
+            let index=this.root
+            let temp=index
+            console.log(temp)
+            while(temp!=null){
+                if(index.value>value)temp=index.left
+                else if (index.value<value)temp=index.right
+            }
+            temp=new Node(value)
+            console.log(temp)    
+        }
+        
     }
     lookup(value){
       //Code here
@@ -27,18 +39,20 @@ class Node {
   tree.insert(170)
   tree.insert(15)
   tree.insert(1)
-  JSON.stringify(traverse(tree.root))
+  console.log(tree)
+
   
   //     9
   //  4     20
   //1  6  15  170
-  
+  /*
   function traverse(node) {
     const tree = { value: node.value };
     tree.left = node.left === null ? null : traverse(node.left);
     tree.right = node.right === null ? null : traverse(node.right);
     return tree;
   }
+  */
   
   
   
