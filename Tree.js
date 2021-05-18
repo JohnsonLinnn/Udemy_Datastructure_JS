@@ -46,9 +46,23 @@ class BinarySearchTree {
     }
     remove(value){
       //check if the tree has the root, if not return false
+      if(!this.root)return false 
       //get the parent node and current node
+      let pnode=null
+      let currentnode=this.root
       //loop though the nodes while keeping track of the parent node
       //find the node
+      while(currentnode.value!=value){
+        if(value>currentnode.value){
+            pnode=currentnode
+            currentnode=currentnode.right
+          }else if(value<currentnode.value){
+            pnode=currentnode
+            currentnode=currentnode.left
+        }
+      }
+      console.log(pnode)
+      console.log(currentnode)
       //condition 1:if the node is a leaf delete it 
       //condition 2:if the node has 2 child 
       //condition 3:if the node has 1 child
@@ -63,10 +77,7 @@ class BinarySearchTree {
   tree.insert(170)
   tree.insert(15)
   tree.insert(1)
-
-  let ham = tree.lookup(18)
-  console.log(ham)
-  JSON.stringify(traverse(tree.root))
+  tree.remove(170)
   
   function traverse(node) {
     const tree = { value: node.value };
