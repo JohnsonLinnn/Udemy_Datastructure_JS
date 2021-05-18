@@ -44,7 +44,15 @@ class BinarySearchTree {
       }
       return false
     }
-    // remove
+    remove(value){
+      //check if the tree has the root, if not return false
+      //get the parent node and current node
+      //loop though the nodes while keeping track of the parent node
+      //find the node
+      //condition 1:if the node is a leaf delete it 
+      //condition 2:if the node has 2 child 
+      //condition 3:if the node has 1 child
+    }
   }
   
   const tree = new BinarySearchTree();
