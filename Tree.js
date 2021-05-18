@@ -13,9 +13,22 @@ class BinarySearchTree {
     insert(value){
         if(this.root==null)this.root=new Node(value)
         else{
-            let index=this.root
-            if(value>index.value && index.right!=null)index=index.right
-            else index.right=new Node(value)
+          let pointeer =this.root
+          while(true){
+            if(value>pointeer.value){
+              if(pointeer.right==null){
+                pointeer.right=new Node(value)
+                return 
+              }
+              pointeer=pointeer.right
+            }else if(value<pointeer.value){
+              if(pointeer.left==null){
+                pointeer.left=new Node(value)
+                return 
+              }
+              pointeer=pointeer.left
+            }
+          }
         }
         
     }
@@ -33,8 +46,15 @@ class BinarySearchTree {
   tree.insert(170)
   tree.insert(15)
   tree.insert(1)
-  console.log(tree)
+  JSON.stringify(traverse(tree.root))
 
+  function divider(value,node){
+    if(value>node.value){
+      return node.right
+    }else if(value<node.value){
+      return node.left
+    }
+  }
   
   //     9
   //  4     20
