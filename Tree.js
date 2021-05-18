@@ -33,7 +33,16 @@ class BinarySearchTree {
         
     }
     lookup(value){
-      //Code here
+      if(!this.root)return false 
+      let pointer =this.root
+      while(pointer){
+        if(value>pointer.value){
+          pointer=pointer.right
+        }else if(value<pointer.value){
+          pointer=pointer.left
+        }else if(value==pointer.value)return pointer
+      }
+      return false
     }
     // remove
   }
@@ -46,19 +55,10 @@ class BinarySearchTree {
   tree.insert(170)
   tree.insert(15)
   tree.insert(1)
-  JSON.stringify(traverse(tree.root))
 
-  function divider(value,node){
-    if(value>node.value){
-      return node.right
-    }else if(value<node.value){
-      return node.left
-    }
-  }
-  
-  //     9
-  //  4     20
-  //1  6  15  170
+  let ham = tree.lookup(18)
+  console.log(ham)
+  JSON.stringify(traverse(tree.root))
   
   function traverse(node) {
     const tree = { value: node.value };
