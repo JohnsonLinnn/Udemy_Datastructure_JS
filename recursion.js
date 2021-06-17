@@ -31,12 +31,29 @@ function findFactorialIterative(number) {
 //For example: fibonacciRecursive(6) should return 8
 
 function fibonacciIterative(n){
-    //code here;
+    if(n==0)return 0
+    if(n==1)return 1
+    let fir=0
+    let sec=1
+    if(n>1){
+        while(n>1){
+            let hold =sec
+            sec =fir+sec
+            fir =hold
+            n--
+        }
+    }
+    return sec
   }
-  fibonacciIterative(3);
-  
+
   function fibonacciRecursive(n) {
-    //code here;
+    if(n==0){
+        return 0
+    }else if(n==1){
+        return 1
+    }else if(n>1){
+        return fibonacciRecursive(n-2)+fibonacciRecursive(n-1)
+    }
   }
-  
-  fibonacciRecursive(3)
+  console.log(fibonacciIterative(6));
+  console.log(fibonacciRecursive(6))
