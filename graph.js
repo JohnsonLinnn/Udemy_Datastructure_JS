@@ -17,6 +17,8 @@ class Graph {
     } 
     showConnections() { 
       const allNodes = Object.keys(this.adjacentList); 
+
+        console.log(typeof(allNodes[1]))
       for (let node of allNodes) { 
         let nodeConnections = this.adjacentList[node]; 
         let connections = ""; 
