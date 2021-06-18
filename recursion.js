@@ -55,5 +55,17 @@ function fibonacciIterative(n){
         return fibonacciRecursive(n-2)+fibonacciRecursive(n-1)
     }
   }
-  console.log(fibonacciIterative(6));
-  console.log(fibonacciRecursive(6))
+  //console.log(fibonacciIterative(6));
+  //console.log(fibonacciRecursive(6))
+
+//Implement a function that reverses a string using iteration...and then recursion!
+function reverseString(str) {
+  if(str.length==0){
+    return str
+  }else{
+    let hold =str[0]
+    return reverseString(str.substring(1))+hold;
+  }
+}
+console.log(reverseString('yoyo mastery'))
+//should return: 'yretsam oyoy'
