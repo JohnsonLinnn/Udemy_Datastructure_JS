@@ -1,4 +1,5 @@
-const numbers = [99, 44, 6, 2, 1, 5, 63, 87, 283, 4, 0];
+//const numbers = [99, 44, 6, 2, 1, 5, 63, 87, 283, 4, 0];
+const numbers = [3, 7, 8, 5, 2, 1, 9, 5, 4];
 
 function bubbleSort(array) {
     for(let i=0;i<array.length;i++){
@@ -83,14 +84,50 @@ function mergeSort (array) {
     return hold
   }
   
-  let numbersCopy = numbers.map((x) => x);
-  const answer = mergeSort(numbersCopy);
-  console.log('merge is ',answer);
+  //let numbersCopy = numbers.map((x) => x);
+  //const answer = mergeSort(numbersCopy);
+  //console.log('merge is ',answer);
+
+
+  //if the input array 
+  function quickSort(array, left, right){
+    console.log('this is modifiing' ,left , right)
+    if(right-left>0){
+        let righthold=right
+        let lefthold=left
+        while(left<right){
+
+            if(array[left]>array[right]){
+                let hold =array[left]
+                array[left]=array[right-1]
+                array[right-1]=array[right]
+                array[right]=hold
+                right=right-1
+                
+               
+            }else{
+                left=left+1
+            }
+        }
+        console.log('after this modifed')
+        console.log(array)
+
+        quickSort(array,lefthold,left-1)
+
+        quickSort(array,left+1,righthold)
+    }
+  }
+  
+  
+  //Select first and last index as 2nd and 3rd parameters
+  quickSort(numbers, 0, numbers.length - 1);
+  console.log(numbers);
+
 
 
 //selectionSort(numbers);
 //console.log(numbers);
-bubbleSort(numbers);
-console.log('buble ',numbers);
+//bubbleSort(numbers);
+//console.log('buble ',numbers);
 //insertionSort(nu,mbers);
 //console.log(numbers);
